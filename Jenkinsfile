@@ -4,6 +4,18 @@ echo 'starting jenkins build'
 node('docker-maven-slave') { //
 	// Check type of Node
 	env.PATH = "${tool 'Maven'}/bin:${env.PATH}"
+	if (isUnix())
+        {
+                echo 'Unix'
+                sh 'java -version'
+                sh 'mvn -v'
+        }
+        else
+        {
+                echo 'Not Unix'
+                bat 'java -version'
+                bat 'mvn -v'
+        }
 
 	stage 'Checkout'
 		// Checkout code
