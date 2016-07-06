@@ -8,7 +8,7 @@ node('docker-maven-slave') { //
 	stage 'Checkout'
 
 	// Checkout code
-	git credentialsId: 'egb2016', url: 'https://github.com/DevSquadOrganization/jenkins.git'
+	git credentialsId: 'egb2016', url: 'https://github.com/DevSquadOrganization/Repo1.git'
 
 	stage 'Build'
     // Maven  build
@@ -16,7 +16,7 @@ node('docker-maven-slave') { //
     // Archive JUnitResults
     step([$class: 'JUnitResultArchiver', testResults: 'target/surefire-reports/TEST-com.optum.ocd.sonarservice*.xml'])
 
-	stage ''
+
 }
 
 echo 'Build Completed'
