@@ -28,7 +28,7 @@ node('docker-maven-slave') { //
 
 	//stage 'Test'
 		// Archive JUnitResults
-    //step([$class: 'JUnitResultArchiver', testResults: 'target/surefire-reports/TEST-com.optum.ocd.sonarservice.xml'])
+    //step([$class: 'JUnitResultArchiver', testResults: 'target/surefire-reports/TEST-com.optum.ocd.sonarservice*.xml'])
 }
 
 echo 'Build Completed'
